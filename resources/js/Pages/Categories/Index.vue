@@ -11,27 +11,27 @@ defineProps({
 <template>
     <MainLayout>
         <div class="categories-container container" style="scrollbar-width: none;">
-            <div class="w-full  p-6 flex justify-between items-center shadow-lg">
-                <h1 class="text-2xl font-bold uppercase">Categories Page</h1>
-                <Link href="/products" class="rounded-lg bg-gray-200 text-gray-900 font-semibold py-3 px-6 hover:bg-gray-600 hover:text-white transition duration-300 uppercase text-sm">
+            <div class="w-full  p-2 d-flex justify-content-between">
+                <h1 class="text-black fs-2 m-0 fw-bold d-flex justify-content-center align-items-center">Categories Page</h1>
+                <Link href="/products" class="productlist-btn border rounded d-flex justify-content-center align-items-center p-4 fw-bold">
                     Product List
                 </Link>
             </div>
 
             <div class="container">
-                <table class="min-w-full table-auto">
-                    <thead>
+                <table class="w-100">
+                    <thead class="">
                         <tr class="">
-                            <th class="py-3 px-6 text-left font-semibold uppercase">Category</th>
-                            <th class="py-3 px-6 text-left font-semibold uppercase">Description</th>
+                            <th class="p-4 rounded-start text-left font-semibold uppercase text-white">Category</th>
+                            <th class="p-4 rounded-end text-left font-semibold uppercase text-white">Description</th>
                         </tr>
                     </thead>
 
-                    <tbody class="divide-y divide-gray-600">
+                    <tbody class="">
                         <tr v-for="category in categories" :key="category.id"
-                            class="hover:bg-gray-700 transition duration-200">
-                            <td class="py-4 px-6 text-gray-200">{{ category.name }}</td>
-                            <td class="py-4 px-6 text-gray-400">{{ category.description }}</td>
+                            class="table-row pt-4">
+                            <td class="py-4 px-6 rounded-start">{{ category.name }}</td>
+                            <td class="py-4 px-6 rounded-end">{{ category.description }}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -43,11 +43,32 @@ defineProps({
 </template>
 
 <style scoped>
-* {
-    color: #000;
+
+
+thead {
+    background-color: #a31621;
 }
 
 .categories-container {
     background-color: #fcf7f8;;
+}
+
+.productlist-btn {
+    transition: background-color 0.5s;
+}
+
+.productlist-btn:hover {
+    background-color: #a31621;
+    color: #fff;
+}
+
+.table-row:hover {
+    background-color: #a31621;
+    color: #fff;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0px 10px;
 }
 </style>

@@ -20,35 +20,33 @@ defineProps({
 <template>
     <MainLayout>
         <div class="">
-        <!-- Sidebar (Categories) -->
-        <!-- <div class="w-1/4 bg-gray-900 p-6 shadow-lg rounded-r-lg">
-            <Link href="/products" class="text-3xl font-bold text-gray-300 cursor-pointer">Categories</Link>
-            <div class="space-y-4 mt-6">
-                <Link v-for="category in categories" :key="category.id" :href="`/products/${category.id}`"
-                    class="block py-3 px-5 text-sm text-white bg-gray-600 hover:bg-blue-700 rounded-lg transition-all transform hover:scale-105 border-b border-gray-700">
-                {{ category.name }}
-                </Link>
-            </div>
-        </div> -->
+            <!-- Sidebar (Categories) -->
+            <!-- <div class="w-1/4 bg-gray-900 p-6 shadow-lg rounded-r-lg">
+                <Link href="/products" class="text-3xl font-bold text-gray-300 cursor-pointer">Categories</Link>
+                <div class="space-y-4 mt-6">
+                    <Link v-for="category in categories" :key="category.id" :href="`/products/${category.id}`"
+                        class="block py-3 px-5 text-sm text-white bg-gray-600 hover:bg-blue-700 rounded-lg transition-all transform hover:scale-105 border-b border-gray-700">
+                    {{ category.name }}
+                    </Link>
+                </div>
+            </div> -->
 
-        <!-- Main Content (Products List) -->
-        <div class="container overflow-scroll" style="scrollbar-width: none;">
-            <div class="d-flex justify-content-between p-2">
-                <h1 v-if="!category" class="text-black fs-2 m-0 fw-bold d-flex justify-content-center align-items-center">Products List</h1>
+            <!-- Main Content (Products List) -->
+            <div class="container" style="scrollbar-width: none;">
+                <div class="d-flex justify-content-between p-2">
+                    <h1 v-if="!category" class="text-black fs-2 m-0 fw-bold d-flex justify-content-center align-items-center">Products List</h1>
 
-                <h1 class="text-3xl font-bold text-gray-100 mb-6" style="margin: 0 !important;" v-if="category">{{ category.name }}</h1>
-                <Link href="/categories" class="category-btn border rounded d-flex justify-content-center align-items-center p-3 fw-bold">Category List</Link>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div v-for="product in products" :key="product.id">
-                    <ProductCard :product="product"/>
+                    <h1 class="text-3xl font-bold text-gray-100 mb-6" style="margin: 0 !important;" v-if="category">{{ category.name }}</h1>
+                    <Link href="/categories" class="category-btn border rounded d-flex justify-content-center align-items-center p-4 fw-bold">Category List</Link>
                 </div>
 
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div v-for="product in products" :key="product.id">
+                        <ProductCard :product="product"/>
+                    </div>
+                </div>
             </div>
-
         </div>
-    </div>
     </MainLayout>
 
 </template>
